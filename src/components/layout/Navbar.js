@@ -1,13 +1,13 @@
-import { useCartContext } from "@/utils/ContextReducer";
+import { CartContext } from "@/utils/ContextReducer";
 import { useTheme } from "next-themes";
 import Image from "next/image";
 import Link from "next/link";
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 
 function Navbar() {
   const [mounted, setMounted] = useState(false);
   const { theme, setTheme } = useTheme();
-  const { state } = useCartContext();
+  const { state } = useContext(CartContext);
   useEffect(() => setMounted(true), []);
 
   if (!mounted) return null;
@@ -19,7 +19,7 @@ function Navbar() {
           href={"/"}
           className="flex title-font font-extrabold items-center  uppercase text-gray-100"
         >
-          <Image src={"/Pizza.svg"} width={60} height={60} />
+          <Image alt="Navbar" src={"/Pizza.svg"} width={60} height={60} />
           <p className="leading-5 text-xl mx-2">Pizza Wizza</p>
         </Link>
         <nav className="md:ml-auto flex flex-wrap items-center text-base justify-center">

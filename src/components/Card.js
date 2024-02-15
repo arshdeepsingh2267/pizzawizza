@@ -1,10 +1,10 @@
-import { useCartContext } from "@/utils/ContextReducer";
+import { CartContext } from "@/utils/ContextReducer";
 import Image from "next/image";
 import Link from "next/link";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 
 function Card(props) {
-  const { state, dispatch } = useCartContext();
+  const { state, dispatch } = useContext(CartContext);
   const data = props.foodData;
   const [qty, setQty] = useState(1);
   const priceOptions = Object.keys(data.price);

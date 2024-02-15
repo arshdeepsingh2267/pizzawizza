@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
 
-function index() {
+function Orders() {
   const [orderData, setOrderData] = useState([]);
   const fetchMyOrder = async () => {
     console.log(localStorage.getItem("userEmail"));
@@ -91,4 +91,4 @@ function index() {
   );
 }
 
-export default index;
+export default Orders;

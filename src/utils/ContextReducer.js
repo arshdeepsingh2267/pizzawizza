@@ -64,7 +64,7 @@ const reducer = (state, action) => {
   }
 };
 
-const CartContext = createContext();
+export const CartContext = createContext();
 export const CartProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, []);
 
@@ -76,7 +76,3 @@ export const CartProvider = ({ children }) => {
     <CartContext.Provider value={contextValue}>{children}</CartContext.Provider>
   );
 };
-
-export function useCartContext() {
-  return useContext(CartContext);
-}

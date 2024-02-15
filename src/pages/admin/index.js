@@ -145,7 +145,7 @@ function Admin() {
               </label>
               {foodData.price !== "" &&
                 Object.keys(foodData.price).map((key) => (
-                  <div className=" ml-4 mb-4">
+                  <div key={key} className=" ml-4 mb-4">
                     <label
                       className="block text-gray-700  dark:text-gray-300 text-sm font-semibold mb-2"
                       htmlFor={key}

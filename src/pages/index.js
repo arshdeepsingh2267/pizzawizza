@@ -98,7 +98,10 @@ export default function Home(props) {
         {categoryArray.map((category) => {
           return (
             <>
-              <div className="text-4xl mt-10 mb-3 uppercase font-bold">
+              <div
+                key={category}
+                className="text-4xl mt-10 mb-3 uppercase font-bold"
+              >
                 {category}
               </div>
               <hr></hr>
@@ -113,7 +116,7 @@ export default function Home(props) {
                       typeFilter ? typeFilter === foodData.foodType : foodData
                     )
                     .map((data) => {
-                      return <Card foodData={data} />;
+                      return <Card key={data} foodData={data} />;
                     })}
                 </div>
               </div>

@@ -18,10 +18,12 @@ function CarouselComponent() {
       {imageProp.map((imageProp) => {
         return (
           <div
+            key={imageProp}
             style={{ maxHeight: "36rem" }}
             className=" object-center brightness-50 "
           >
             <img
+              alt={imageProp}
               src={`https://source.unsplash.com/random/900x600/?${imageProp}`}
             />
           </div>

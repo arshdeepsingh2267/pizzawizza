@@ -1,8 +1,8 @@
-import { useCartContext } from "@/utils/ContextReducer";
-import React, { useState } from "react";
+import { CartContext } from "@/utils/ContextReducer";
+import React, { useContext, useState } from "react";
 
-function cart() {
-  const { state, dispatch } = useCartContext();
+function Cart() {
+  const { state, dispatch } = useContext(CartContext);
   const [success, setSuccess] = useState(false);
   const [fail, setFail] = useState(false);
   // console.log(state);
@@ -200,7 +200,10 @@ function cart() {
                       <tbody>
                         {state.map((data, index) => {
                           return (
-                            <tr class="border-b dark:border-neutral-500">
+                            <tr
+                              key={index}
+                              class="border-b dark:border-neutral-500"
+                            >
                               <td class="whitespace-nowrap px-6 py-4 font-medium">
                                 {index + 1}
                               </td>
@@ -403,4 +406,4 @@ function cart() {
   );
 }
 
-export default cart;
+export default Cart;

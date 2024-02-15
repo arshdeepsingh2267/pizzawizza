@@ -14,7 +14,7 @@ export default function Home(props) {
   // const [categoryArray, setCategoryArray] = useState([]);
   // const [foodData, setFoodData] = useState([]);
   // console.log("123123123123123123", props.data);
-  props.data.map((data) => {
+  props.data?.map((data) => {
     return foodData.push(data), categories.add(data.category);
   });
   // useEffect(() => {
@@ -40,9 +40,6 @@ export default function Home(props) {
   // console.log(categories);
   // foodData = foodData.data;
   // categories.add(foodData.category);
-  useEffect(() => {
-    // console.log("111", props.data);
-  }, []);
 
   const categoryArray = [...categories];
   return (
@@ -95,7 +92,7 @@ export default function Home(props) {
             Non Veg
           </button>
         </div>
-        {categoryArray.map((category) => {
+        {categoryArray?.map((category) => {
           return (
             <>
               <div
@@ -111,11 +108,11 @@ export default function Home(props) {
               >
                 <div className="grid  mx-auto  grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
                   {foodData
-                    .filter((foodData) => category === foodData.category)
+                    ?.filter((foodData) => category === foodData.category)
                     .filter((foodData) =>
                       typeFilter ? typeFilter === foodData.foodType : foodData
                     )
-                    .map((data) => {
+                    ?.map((data) => {
                       return <Card key={data} foodData={data} />;
                     })}
                 </div>

@@ -111,8 +111,8 @@ export async function getStaticProps() {
   const data = await loadFoodData();
   return {
     props: {
-      data,
+      data: data.data || null,
     },
-    revalidate: 10,
+    // fallback: "blocking",
   };
 }

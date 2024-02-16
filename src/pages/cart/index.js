@@ -1,4 +1,5 @@
 import { CartContext } from "@/utils/ContextReducer";
+import { baseURL } from "@/utils/baseUrl";
 import React, { useContext, useState } from "react";
 
 function Cart() {
@@ -9,7 +10,8 @@ function Cart() {
   const handleCheckOut = async () => {
     let userEmail = localStorage.getItem("userEmail");
     // console.log(data,localStorage.getItem("userEmail"),new Date())
-    let response = await fetch("http://localhost:3000/api/ordersData", {
+    console.log(baseURL + "api/ordersData");
+    await fetch(baseURL + "api/ordersData", {
       // credentials: 'include',
       // Origin:"http://localhost:3000/login",
       method: "POST",

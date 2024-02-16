@@ -1,3 +1,4 @@
+import { baseURL } from "@/utils/baseUrl";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import React, { useState } from "react";
@@ -13,7 +14,7 @@ function Signup() {
   let [address, setAddress] = useState("");
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const response = await fetch("/api/userSignUp", {
+    const response = await fetch(baseURL + "api/userSignUp", {
       // credentials: 'include',
       // Origin:"http://localhost:3000/login",
       method: "POST",

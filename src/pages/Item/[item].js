@@ -5,6 +5,7 @@ import React from "react";
 // import fs from "fs";
 import Link from "next/link";
 import Image from "next/image";
+import { baseURL } from "@/utils/baseUrl";
 function Item(props) {
   let data = props.data;
 
@@ -60,8 +61,9 @@ export async function getServerSideProps(context) {
   // Call an external API endpoint to get posts.
   // You can use any data fetching library
   const { item } = context.query;
+
   console.log("23234234", item);
-  const pizzaItem = await fetch("http://localhost:3000/api/getDataById", {
+  const pizzaItem = await fetch(baseURL + "api/getDataById", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",

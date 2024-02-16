@@ -1,3 +1,4 @@
+import { baseURL } from "@/utils/baseUrl";
 import Image from "next/image";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
@@ -6,7 +7,7 @@ function Orders() {
   const [orderData, setOrderData] = useState([]);
   const fetchMyOrder = async () => {
     console.log(localStorage.getItem("userEmail"));
-    await fetch("/api/myOrdersData", {
+    await fetch(baseURL + "api/myOrdersData", {
       // credentials: 'include',
       // Origin:"http://localhost:3000/login",
       method: "POST",

@@ -37,7 +37,7 @@ function Admin() {
   const handleCreate = async (e) => {
     e.preventDefault();
 
-    const response = await fetch("/api/createFoodData", {
+    const response = await fetch("api/createFoodData", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

@@ -15,6 +15,7 @@ export default function Home(props) {
   });
 
   const categoryArray = [...categories];
+  console.log("baseurl-", process.env.BASE_URL);
   return (
     <>
       <Head>

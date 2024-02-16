@@ -1,8 +1,10 @@
+import { baseURL } from "./baseUrl";
+
 export async function loadFoodData() {
-  const baseURL =
-    process.env.NODE_ENV === "production"
-      ? process.env.BASE_URL
-      : "http://127.0.0.1:3000/";
+  // const baseURL =
+  //   process.env.NODE_ENV === "production"
+  //     ? process.env.BASE_URL
+  //     : "http://127.0.0.1:3000/";
   try {
     const pizzaData = await fetch(baseURL + "api/foodData", {
       method: "GET",

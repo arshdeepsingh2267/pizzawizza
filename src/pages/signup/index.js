@@ -14,7 +14,7 @@ function Signup() {
   let [address, setAddress] = useState("");
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const response = await fetch(baseURL + "api/userSignUp", {
+    const response = await fetch("api/userSignUp", {
       // credentials: 'include',
       // Origin:"http://localhost:3000/login",
       method: "POST",

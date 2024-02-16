@@ -7,7 +7,7 @@ function Orders() {
   const [orderData, setOrderData] = useState([]);
   const fetchMyOrder = async () => {
     console.log(localStorage.getItem("userEmail"));
-    await fetch(baseURL + "api/myOrdersData", {
+    await fetch("api/myOrdersData", {
       // credentials: 'include',
       // Origin:"http://localhost:3000/login",
       method: "POST",

@@ -11,7 +11,7 @@ function Login() {
   };
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const response = await fetch(baseURL + "api/userlogin", {
+    const response = await fetch("api/userlogin", {
       // credentials: 'include',
       // Origin:"http://localhost:3000/login",
       method: "POST",

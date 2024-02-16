@@ -11,7 +11,7 @@ function Cart() {
     let userEmail = localStorage.getItem("userEmail");
     // console.log(data,localStorage.getItem("userEmail"),new Date())
     // console.log(baseURL + "api/ordersData");
-    await fetch("api/ordersData", {
+    await fetch(baseURL + "api/ordersData", {
       // credentials: 'include',
       // Origin:"http://localhost:3000/login",
       method: "POST",

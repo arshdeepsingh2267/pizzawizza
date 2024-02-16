@@ -1,45 +1,17 @@
 import Head from "next/head";
-// import fs from "fs";
+
 import Carousel from "@/components/Carousel";
 import Card from "@/components/Card";
-import { useEffect, useState } from "react";
-// import { useEffect, useState } from "react";
-
-// const inter = Inter({ subsets: ["latin"] });
+import { useState } from "react";
 
 export default function Home(props) {
   let categories = new Set();
   const foodData = [];
   const [typeFilter, setTypeFilter] = useState(false);
-  // const [categoryArray, setCategoryArray] = useState([]);
-  // const [foodData, setFoodData] = useState([]);
-  // console.log("123123123123123123", props.data);
+
   props.data?.map((data) => {
     return foodData.push(data), categories.add(data.category);
   });
-  // useEffect(() => {
-  //   const getData = async () => {
-  //     const pizzaData = await fetch("/api/foodData", { method: "GET" });
-  //     const res = await pizzaData.json();
-  //     await setFoodData(res.data);
-  //     // console.log(res.data);
-  //   };
-  //   // console.log(foodData);
-  //   getData()
-  //     .then(() => {
-  //       return foodData.map((data) => {
-  //         categories.add(data.category);
-  //       });
-  //     })
-  //     .then(() => {
-  //       setCategoryArray([...categories]);
-  //       return;
-  //     });
-  // }, [foodData, categoryArray]);
-
-  // console.log(categories);
-  // foodData = foodData.data;
-  // categories.add(foodData.category);
 
   const categoryArray = [...categories];
   return (
@@ -126,36 +98,12 @@ export default function Home(props) {
 }
 
 export async function getStaticProps() {
-  // Call an external API endpoint to get posts.
-  // You can use any data fetching library
-
-  // const pizzaData = await fetch(process.env.PIZZA_DATA);
-
-  // const filePath =
-  //   "/Users/arshdeepsingh/Projects/next-ecommerce/next-ecommerce/src/store/cardData.json";
-  // const fileContents = fs.readFileSync(filePath, "utf8");
-  // const data = JSON.parse(fileContents);
-
-  const pizzaData = await fetch("http://localhost:3000/api/foodData", {
+  const pizzaData = await fetch("https://localhost:3000/api/foodData", {
     method: "GET",
   });
   let data = await pizzaData.json();
   data = data.data;
 
-  // console.log(res.data);
-
-  //  .then(() => {
-  //    return foodData.map((data) => {
-  //      categories.add(data.category);
-  //    });
-  //  })
-  //  .then(() => {
-  //    setCategoryArray([...categories]);
-  //    return;
-  //  });
-
-  // By returning { props: { posts } }, the Blog component
-  // will receive `posts` as a prop at build time
   return {
     props: {
       data,

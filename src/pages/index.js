@@ -3,6 +3,7 @@ import Head from "next/head";
 import Carousel from "@/components/Carousel";
 import Card from "@/components/Card";
 import { useState } from "react";
+import { loadFoodData } from "@/utils/food-data";
 
 export default function Home(props) {
   let categories = new Set();
@@ -98,16 +99,16 @@ export default function Home(props) {
 }
 
 export async function getStaticProps() {
-  const baseURL =
-    process.env.NODE_ENV === "production"
-      ? "https://pizzawizza.vercel.app/"
-      : "http://127.0.0.1:3000/";
-  const pizzaData = await fetch(baseURL + "api/foodData", {
-    method: "GET",
-  });
-  let data = await pizzaData.json();
-  data = data.data;
-
+  // const baseURL =
+  //   process.env.NODE_ENV === "production"
+  //     ? "https://pizzawizza.vercel.app/"
+  //     : "http://127.0.0.1:3000/";
+  // const pizzaData = await fetch(baseURL + "api/foodData", {
+  //   method: "GET",
+  // });
+  // let data = await pizzaData.json();
+  // data = data.data;
+  const data = await loadFoodData();
   return {
     props: {
       data,

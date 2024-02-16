@@ -15,10 +15,10 @@ function CarouselComponent() {
       infiniteLoop
       emulateTouch
     >
-      {imageProp.map((imageProp) => {
+      {imageProp.map((imageProp, index) => {
         return (
           <div
-            key={imageProp}
+            key={index}
             style={{ maxHeight: "36rem" }}
             className=" object-center brightness-50 "
           >

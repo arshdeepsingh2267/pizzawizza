@@ -81,7 +81,7 @@ export default function Home(props) {
                 <div className="grid  mx-auto  grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
                   {foodData
                     ?.filter((foodData) => category === foodData.category)
-                    .filter((foodData) =>
+                    ?.filter((foodData) =>
                       typeFilter ? typeFilter === foodData.foodType : foodData
                     )
                     ?.map((data) => {
@@ -98,7 +98,7 @@ export default function Home(props) {
 }
 
 export async function getStaticProps() {
-  const pizzaData = await fetch("https://localhost:3000/api/foodData", {
+  const pizzaData = await fetch("http://127.0.0.1:3000/api/foodData", {
     method: "GET",
   });
   let data = await pizzaData.json();
@@ -108,5 +108,6 @@ export async function getStaticProps() {
     props: {
       data,
     },
+    revalidate: 10,
   };
 }

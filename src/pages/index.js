@@ -98,7 +98,7 @@ export default function Home(props) {
 }
 
 export async function getStaticProps() {
-  const pizzaData = await fetch("http://127.0.0.1:3000/api/foodData", {
+  const pizzaData = await fetch("/api/foodData", {
     method: "GET",
   });
   let data = await pizzaData.json();

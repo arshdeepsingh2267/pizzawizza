@@ -110,6 +110,7 @@ export async function getStaticProps() {
     props: {
       data: data.data || null,
     },
+    revalidate: 10,
     // fallback: "blocking",
   };
 }
